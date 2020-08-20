@@ -1,6 +1,182 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "MatchupPro";
+  src: local('/Users/owenabbott/Development/capstone/frontend/src/fonts/MatchupPro.ttf'), format('ttf')
 }
+
+p{
+  font-family: "MatchupPro";
+}
+
+.borders {
+  position: relative;
+  border: 5px solid #f00
+}
+
+.borders:before {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 5px solid #ffea00
+}
+
+
+
+.app {
+  text-align: center;
+  background-color: green;
+  width: 100%;
+  height: 100vh;
+  font-size: 220%;
+  font-family: 'MatchupPro';
+  max-height: 100vh;
+}
+
+.button {
+  font-family: 'MatchupPro'
+}
+
+.h2 {
+  font-family: 'MatchupPro';
+  font-size: 300%;
+}
+
+.appNeon {
+  text-align: center;
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  font-family: 'MatchupPro';
+  font-size: 220%;
+  color: rgb(235, 20, 188)
+}
+
+.highScores {
+  text-align: center;
+  position: relative;
+  left: 38%;
+  height: 50vh;
+  font-size: 150%;
+  padding: 20px;
+}
+
+.playerFundsNeon{
+  border-style: solid;
+  border-color: rgb(137, 12, 168);
+  text-align: left;
+  width: 15%
+}
+
+.playerFunds {
+  border-style: solid;
+  border-color: black;
+  text-align: left;
+  width: 15%;
+
+}
+
+.dealer{
+  padding: 30px;
+}
+
+.dealerMessage{
+  padding-top: 25px;
+  padding-bottom: 0px;
+}
+
+.button {
+  font: 'MatchupPro'
+}
+
+
+
+.header {
+  background-color: black;
+  position: relative;
+  top: 0px;
+  width:100vw;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.headerNeon{
+  background-color: black;
+  position: relative;
+  top: 0px;
+  width:100vw;
+  padding: 0;
+  margin: 0;
+}
+
+.headerNeon h1 {
+  font-family: "MatchupPro";
+  font-size: 90px;
+  font-variant: small-caps; 
+  color: rgb(235, 20, 188);
+  border:  20px solid rgb(235, 20, 188);
+}
+
+.header h1 {
+  font-family: "MatchupPro";
+  font-size: 90px;
+  font-variant: small-caps; 
+  color: red;
+  border: 20px solid red
+}
+
+.start-game-form {
+  margin: auto;
+  padding: 15%;
+  width: 5%;
+  color: red;
+  display: flex;
+  background-color: black
+
+}
+
+.none {
+  display: none;
+}
+
+.test { 
+  width: 200px;
+  height: 200px;
+  margin-left: -100px; /* Half of width */
+  margin-top: -100px; /* Half of height */
+  position: absolute; left: 50%; top: 50%;
+}
+
+/* html, body {
+  width: 100%;
+  height: 100%; */
+/* } */
+
+html, body, body > div, .app {
+  height: 100%;
+}
+
+.card {
+    height: auto; 
+    width: auto; 
+    width: 100px; 
+    max-height: 300px;
+}
+
+
+.neonCard {
+  height: auto; 
+  width: auto; 
+  width: 100px; 
+  max-height: 300px;
+  border-style: solid;
+  border-color: rgb(137, 12, 168);
+}
+
+
 
 .App-logo {
   height: 40vmin;
