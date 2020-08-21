@@ -6,6 +6,7 @@ import 'semantic-ui-css/semantic.min.css'
 import './App.css';
 import Header from './components/Header'
 import HighScores from './components/HighScores'
+import Credits from './components/Credits'
 
 export default class App extends Component {
   constructor(){
@@ -39,7 +40,8 @@ export default class App extends Component {
       highScoresArr: [],
       currentPlayerId: [],
       warningMessage: "",
-      secondGame: false
+      secondGame: false,
+      credits: false
     }
   }
 
@@ -140,6 +142,7 @@ export default class App extends Component {
       aces.splice(0, 1)
       total = this.calculateTotal(hand)
       this.checkIfBust(hand, messageIndex)
+      //if the stack collapses again, will try setting total to equal this.checkIfBust
 
     } else if (total > 21 && typeof aces[0] === "undefined"){
       messageIndex === 1 ? newMessage[messageIndex]=`You busted with ${total}` : newMessage[messageIndex]=`Dealer busted with ${total}.`
@@ -689,18 +692,56 @@ export default class App extends Component {
     })
   }
 
+  toggleCredits=()=>{
+    if (this.state.gameStarted === false){
+      this.setState({
+        credits: !this.state.credits
+      })
+    } else {
+      const newLine = "\r\n"
+      let message = "Pixel playing cards made by Yaoman on itch.io"
+      message += newLine
+      message += "https://yaomon.itch.io/playing-cards"
+      message += newLine
+      message += newLine
+      message += "Neon mode playing cards made by mapsandapps on itch.io"
+      message += 'https://mapsandapps.itch.io/synthwave-playing-card-deck-assets'
+      message += newLine
+      message += newLine
+      message += "demo font MatchupPro by somepx on itch.io"
+      message += newLine
+      message += "https://somepx.itch.io/humble-fonts-free"
+      message += newLine 
+      message += newLine
+      message += "Normal mode music: 8 Bit Menu (By David Renda), Royalty free music from https://www.fesliyanstudios.com"
+      message += newLine
+      message += newLine
+      message += "Neon mode music: A Sad Touch (by John Børge Tjelta, also known as Arachno)"
+      message += newLine
+      message += "http://www.musikwave.com/artist/Arachno"
+      message += newLine
+      message += newLine 
+      message += "General interface assets purchased from www.gamedevmarket.net"
+
+      alert(message)
+      
+    }
+  }
+
 
   render() {
     return (
       <div className={this.state.eighties ? "appNeon" : "app"}>
         <Header eighties={this.state.eighties}/>
+        <Credits credits={this.state.credits}/>
         <button className="button" onClick={this.pauseAudio} style={{display: this.state.initiated ? 'inline' : 'none'}}>Toggle Music</button>
         <button className="button" onClick={this.toggleEighties} style={{display: this.state.initiated ? 'inline' : 'none'}}>Toggle Neon Mode</button>
+        <button className="button" onClick={this.toggleCredits} style={{display: this.state.initiated === true  ? 'inline' : 'none'}}>Toggle Credts</button>
         <div className={this.state.eighties ? "playerFundsNeon" : "playerFunds"}>Total Funds: {this.state.bankAccount}<br/>
         Current Wager: {this.state.betAmount}</div>
         <HighScores displayTopWinners={this.state.displayTopWinners} playAgain={this.playAgain}/>
-        <StartForm warningMessage={this.state.warningMessage} handleStartFormSubmit={this.handleStartFormSubmit} initiated={this.state.initiated} displayTopWinners={this.state.displayTopWinners}/>
-        <BetForm warningMessage={this.state.warningMessage} handleBet={this.handleBet} display={this.state.displayBetForm} />
+        <StartForm credits={this.state.credits} warningMessage={this.state.warningMessage} handleStartFormSubmit={this.handleStartFormSubmit} initiated={this.state.initiated} displayTopWinners={this.state.displayTopWinners}/>
+        <BetForm credits={this.state.credits} warningMessage={this.state.warningMessage} handleBet={this.handleBet} display={this.state.displayBetForm} />
         <Table betAmount={this.state.betAmount} 
           betAmount={this.state.betAmount} 
           playerHand={this.state.playerHand}

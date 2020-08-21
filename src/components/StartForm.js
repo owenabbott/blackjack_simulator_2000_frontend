@@ -6,7 +6,7 @@ export default class StartForm extends Component {
 
     render() {
         return (
-            <div className={this.props.initiated == true ? "none" : "test"}>
+            <div className={this.props.initiated === true ? "none" : "test"}>
                 <form onSubmit={this.props.handleStartFormSubmit} >
                 <label>Your name?</label><br></br>
                 <input type="text" id="name" name="name" className="button" /><br></br>

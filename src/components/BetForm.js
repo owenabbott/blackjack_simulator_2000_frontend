@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class BetForm extends Component {
     render() {
         return (
-            <div className={this.props.display ? "test" : "none"}>
+            <div className={this.props.display && this.props.credits === false ? "test" : "none"}>
             
                 <form onSubmit={this.props.handleBet} className="place_bet_form">
                 <label>Enter your bet</label><br></br>
