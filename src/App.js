@@ -38,7 +38,8 @@ export default class App extends Component {
       displayTopWinners: false,
       highScoresArr: [],
       currentPlayerId: [],
-      warningMessage: ""
+      warningMessage: "",
+      secondGame: false
     }
   }
 
@@ -202,7 +203,9 @@ export default class App extends Component {
 
       this.generateDeck()
 
-      this.playAudio("music")
+      if (this.state.secondGame===false){
+        this.playAudio("music")
+      }
     }
   }
 
@@ -656,7 +659,8 @@ export default class App extends Component {
       message: ["", ""],
       endGameMessage: "",
       bot1Hand: newBot2Hand,
-      bot2Hand: newBot1Hand
+      bot2Hand: newBot1Hand,
+      secondGame: true
       
       
     })
