@@ -216,6 +216,7 @@ export default class App extends Component {
       doubled: true
     })
     this.handleHit()
+    this.handleStand()
   }
 
 
