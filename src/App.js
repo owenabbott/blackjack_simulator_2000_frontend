@@ -83,6 +83,18 @@ export default class App extends Component {
 
   calculateTotal=(hand)=>{
     let total = 0
+    
+    // let newHand = hand
+    // newHand.forEach(card => {
+    //   if (card.value === "A"){
+    //     let newCard = card
+    //     let index = newHand.indexOf(card)
+    //     newHand.splice(index, 1)
+    //     newHand.push(newCard) 
+    //   }
+    // })
+    
+
     hand.forEach(card => {
       if (parseInt(card.value) > 0){
         total += parseInt(card.value)
@@ -95,6 +107,7 @@ export default class App extends Component {
         total += 10
       }
     })
+
     return total
   };
 
@@ -121,9 +134,11 @@ export default class App extends Component {
 
     // console.log(typeof aces[0])
     if (total > 21 && typeof aces[0] != "undefined"){
-
-      this.swapAceValue(hand)
       //swapAceValue changes the state of hand, have to use recursion here to make sure it works right. I don't remember what my reasoning is but it doesn't work any other way.
+      // this.checkIfBust(hand, messageIndex)
+      this.swapAceValue(hand)
+      aces.splice(0, 1)
+      total = this.calculateTotal(hand)
       this.checkIfBust(hand, messageIndex)
 
     } else if (total > 21 && typeof aces[0] === "undefined"){
@@ -317,6 +332,7 @@ export default class App extends Component {
       clearInterval(optionalInterval)
       if (this.calculateTotal(this.state.dealerHand) === 21){
         this.handleStand()
+        this.calculateWinner()
       }
     } else {
       const newHand = this.state.playerHand
@@ -369,8 +385,10 @@ export default class App extends Component {
     })
       if (this.calculateTotal(this.state.dealerHand) === 21 && this.state.dealerHand.length === 2){
         this.setState({
+          usersStayed: true,
           botsStayed: true
         })
+        this.calculateWinner()
       }
       else if (this.calculateTotal(this.state.dealerHand) < 17 && this.state.numberOfBots === 0){
         this.setState({
@@ -398,9 +416,10 @@ export default class App extends Component {
           //   console.log("THIS DOESN'T MAKE SENSE. WHY IS THIS CONDITION NEVER MET")
           //   const testInterval = setInterval(()=>this.computerDraw(this.state.dealerHand, undefined, testInterval, 17), 500)
           // }
-        }
+        } 
       } else {
         this.checkIfBust(this.state.dealerHand, 0)
+        
         this.calculateWinner()
       }
     
@@ -514,6 +533,7 @@ export default class App extends Component {
   botDraw=(hand, optionalLength, optionalInterval, optionalTotal)=>{
     // this.botsStayed()
     const newHand = hand
+    
     if (this.state.numberOfBots === 1 && optionalLength >= 2 && newHand.length === 1){
       clearInterval(optionalInterval)
       const playerBotInterval = setInterval(() => { this.handleHit(this.state.playerHand.length, playerBotInterval) }, 500)
@@ -526,6 +546,7 @@ export default class App extends Component {
     this.setState({
       hand: newHand
     })
+    this.checkIfBust(hand, 2)
   }
 
   //this feels ridiculous.
@@ -542,6 +563,7 @@ export default class App extends Component {
     this.setState({
       hand: newHand
     })
+    this.checkIfBust(hand, 3)
   }
 
 
@@ -554,7 +576,6 @@ export default class App extends Component {
     if (optionalHandLength < 2){
       const newHand = hand
       newHand.push(this.drawCard())
-      this.swapAceValue(newHand)
       this.setState({
         hand: newHand
       })
@@ -576,13 +597,14 @@ export default class App extends Component {
       const newHand = hand
       if (this.calculateTotal(hand) <= optionalTotal){
       newHand.push(this.drawCard())
-      this.swapAceValue(newHand)
+
       this.setState({
         hand: newHand
       })
 
     }
       this.checkIfBust(this.state.dealerHand, 0)
+      
       if (this.calculateTotal(hand) >= 17){
         clearInterval(optionalInterval)
         if (hand === this.state.dealerHand){
@@ -758,3 +780,4 @@ export default class App extends Component {
   //dealer had 18 and hit anyway after I stayed, busted with 28. Don't know why this keeps happening intermittantly. 2 bots were active this time.
   //bots draw cards after the winner is calculated if the dealer gets blackjack on his initial draw
   //game breaks if user hits 'new round' while dealer still drawing
+  //Dealer had 21, but didn't show his card. He bet, despite already having 21, and  got 21. 
