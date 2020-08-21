@@ -595,7 +595,7 @@ export default class App extends Component {
 
     } else if (optionalTotal === 17 ){
       const newHand = hand
-      if (this.calculateTotal(hand) <= optionalTotal){
+      if (this.calculateTotal(hand) < optionalTotal){
       newHand.push(this.drawCard())
 
       this.setState({

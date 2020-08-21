@@ -91,7 +91,7 @@ export default class Table extends Component {
                 <button onClick={this.props.handleStand} style={{display: this.props.stayed ? 'none' : 'inline'}}>Stand</button> */}
                 <button className="button" style={{display: 'none'}}>Split</button>
                 <h2 className="h2">{this.props.endGameMessage}</h2>
-                <button className="button" onClick={this.props.handleNewRound} style={{display: this.props.botsStayed && this.props.calculateTotal(this.props.dealerHand) >= 17 && this.props.bankAccount >= 10  || this.props.numberOfBots === 0 && this.props.botsStayed && this.props.bankAccount >= 10 ? 'inline' : 'none'}}>New Round</button>
+                <button className="button" onClick={this.props.handleNewRound} style={{display: this.props.botsStayed && this.props.calculateTotal(this.props.dealerHand) >= 17 && this.props.bankAccount >= 10 && this.props.stayed || this.props.numberOfBots === 0 && this.props.botsStayed && this.props.bankAccount >= 10 ? 'inline' : 'none'}}>New Round</button>
                 <button className="button" style={{display: this.props.botsStayed && this.props.calculateTotal(this.props.dealerHand) >= 17 || this.props.numberOfBots === 0 && this.props.botsStayed ? 'inline' : 'none'}} onClick={this.props.walkAway}>Walk Away</button>
 
                 </Container>
