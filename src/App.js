@@ -203,7 +203,7 @@ export default class App extends Component {
         warningMessage: ""
       })
 
-      fetch('http://localhost:3000/users/', {
+      fetch('https://blackjack-simulator-backend.herokuapp.com/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -239,7 +239,7 @@ export default class App extends Component {
 
 
   playerWin=()=>{
-   fetch(`http://localhost:3000/users/${this.state.currentPlayerId}`, {
+   fetch(`https://blackjack-simulator-backend.herokuapp.com/users/${this.state.currentPlayerId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -251,7 +251,7 @@ export default class App extends Component {
   }
 
   playerLoss=()=>{
-    fetch(`http://localhost:3000/users/${this.state.currentPlayerId}`, {
+    fetch(`https://blackjack-simulator-backend.herokuapp.com/users/${this.state.currentPlayerId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -263,7 +263,7 @@ export default class App extends Component {
   }
 
   playerNaturalBlackjack=()=>{
-      fetch(`http://localhost:3000/users/${this.state.currentPlayerId}`, {
+      fetch(`https://blackjack-simulator-backend.herokuapp.com/users/${this.state.currentPlayerId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
