@@ -22,7 +22,7 @@ export default class HighScores extends Component {
 
     fetchHighScores=()=>{
         if (this.props.displayTopWinners === true && this.state.fetched === false){
-            fetch('http://localhost:3000/users')
+            fetch('https://blackjack-simulator-backend.herokuapp.com/users')
             .then(res=>res.json())
             .then(highScoresArr => {
             this.setState({
