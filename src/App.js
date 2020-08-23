@@ -429,7 +429,7 @@ export default class App extends Component {
   }
 
   calculateWinner=()=>{
-    //this isn't the cleanest way to do things but I split each message by spaces, and then capture/parseint the last index which is the total.
+
     const playerTotalArray=this.state.message[1].split(' ')
     const dealerTotalArray=this.state.message[0].split(' ')
     const playerTotal=parseInt(playerTotalArray[playerTotalArray.length-1])
@@ -822,3 +822,4 @@ export default class App extends Component {
   //bots draw cards after the winner is calculated if the dealer gets blackjack on his initial draw
   //game breaks if user hits 'new round' while dealer still drawing
   //Dealer had 21, but didn't show his card. He bet, despite already having 21, and  got 21. 
+  //Stack collapsed when dealer had more than one ace, but when conditions repeated, the error was not reproduced. Hopefully this was a one off glitch.
