@@ -1,10 +1,10 @@
-@font-face {
-  font-family: "MatchupPro";
-  src: local('/Users/owenabbott/Development/capstone/frontend/src/fonts/MatchupPro.ttf'), format('ttf')
+@font-face{
+  font-family:"Pixelar Regular W01 Regular";
+  src:url("Fonts/1428314/4d8bd4f0-ce40-4f34-a0b8-49bc51024ea8.woff2") format("woff2"),url("Fonts/1428314/9c200a14-d264-405c-86bf-d27b840e86be.woff") format("woff");
 }
 
 p{
-  font-family: "MatchupPro";
+  font-family:"Pixelar Regular W01 Regular";;
 }
 
 .borders {
@@ -31,16 +31,16 @@ p{
   width: 100%;
   height: 100vh;
   font-size: 220%;
-  font-family: 'MatchupPro';
+  font-family:"Pixelar Regular W01 Regular";
   max-height: 100vh;
 }
 
 .button {
-  font-family: 'MatchupPro'
+  font-family:"Pixelar Regular W01 Regular";
 }
 
 .h2 {
-  font-family: 'MatchupPro';
+  font-family:"Pixelar Regular W01 Regular";
   font-size: 300%;
 }
 
@@ -49,7 +49,7 @@ p{
   background-color: black;
   width: 100%;
   height: 100vh;
-  font-family: 'MatchupPro';
+  font-family:"Pixelar Regular W01 Regular";
   font-size: 220%;
   color: rgb(235, 20, 188)
 }
@@ -113,7 +113,7 @@ p{
 }
 
 .headerNeon h1 {
-  font-family: "MatchupPro";
+  font-family:"Pixelar Regular W01 Regular";
   font-size: 90px;
   font-variant: small-caps; 
   color: rgb(235, 20, 188);
@@ -121,7 +121,7 @@ p{
 }
 
 .header h1 {
-  font-family: "MatchupPro";
+  font-family:"Pixelar Regular W01 Regular";
   font-size: 90px;
   font-variant: small-caps; 
   color: red;

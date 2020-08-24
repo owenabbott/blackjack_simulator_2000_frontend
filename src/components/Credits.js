@@ -11,8 +11,8 @@ export default class Credits extends Component {
                     <p>Neon mode playing cards made by mapsandapps on itch.io
                     https://mapsandapps.itch.io/synthwave-playing-card-deck-assets</p>
 
-                    <p>demo font MatchupPro by somepx on itch.io
-                    https://somepx.itch.io/humble-fonts-free</p>
+                    <p>Font 'pixelar' from fonts.com
+                    https://www.fonts.com/font/graviton/pixelar</p>
 
                     <p>Normal mode music: 8 Bit Menu (By David Renda), Royalty free music from https://www.fesliyanstudios.com</p>
 

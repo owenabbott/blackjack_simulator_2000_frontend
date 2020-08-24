@@ -708,9 +708,9 @@ export default class App extends Component {
       message += 'https://mapsandapps.itch.io/synthwave-playing-card-deck-assets'
       message += newLine
       message += newLine
-      message += "demo font MatchupPro by somepx on itch.io"
+      message += "Font 'pixelar' from fonts.com"
       message += newLine
-      message += "https://somepx.itch.io/humble-fonts-free"
+      message += "https://www.fonts.com/font/graviton/pixelar"
       message += newLine 
       message += newLine
       message += "Normal mode music: 8 Bit Menu (By David Renda), Royalty free music from https://www.fesliyanstudios.com"
